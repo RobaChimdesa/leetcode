@@ -1,23 +1,16 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-
-        stack=[]
-        for i in s:
-
-            if i not in ')}]':
-
-
-                stack.append(i)
-            elif stack:
-
-
-                x=stack.pop()
-                if (x=='(' and i!=')') or (x=='['and i!=']') or (x=='{' and i!='}'):
-
-                    return False
-            
+        mydict = {'(':')','{':'}','[':']'}
+        stack = []
+        for i in range(len(s)):
+            if s[i] in mydict.keys():
+                stack.append(s[i])
             else:
+                if not stack:
+                    return False
+                else:
+                    a = stack.pop()
+                    if mydict[a] != s[i]:
+                        return False
+        return stack == []                
 
-                return False    
-        return False if stack else True
-        
