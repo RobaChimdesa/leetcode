@@ -4,6 +4,7 @@ class Solution:
         y=[]
         for i in range(len(strs)):
             y.append(len(strs[i]))
+          
         for i in range(min(y)):
             cnt=1
             for j in range(1,len(strs)):
